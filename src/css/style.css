@@ -1,0 +1,385 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: black;
+    background-size: cover;
+}
+
+
+.search{
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    padding: 5px;
+    color: white
+}
+
+
+.search input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    outline: none;
+    padding-left: 45px;
+    margin-top: 1.5px;
+}
+
+.search img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+}
+
+#time {
+    font-size: 8rem;
+}
+
+h1 {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+
+.todo{
+    position: absolute;
+    bottom:50px;
+    right: 100px;
+    cursor: pointer;
+}
+.todo h4{
+    color: white;
+    opacity: 0.5;
+}
+
+/*LOGIN SYSTEM LOGIN SYSTEM LOGIN SYSTEM LOGIN SYSTEM*/
+.login_system{
+    display: flex;
+    flex-direction: column;
+}
+
+.login_system input {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    outline: none;
+    margin-top: 1.5px;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid white;
+}
+
+.login_system button {
+    background: none;
+    color: white;
+    font-size: 30px;
+    outline: none;
+    margin-top: 1.5px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 2px solid white;
+    opacity: 0.6;
+    min-width: 350px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.login_system button:hover {
+    opacity: 0.3;
+}
+
+.login_system a{
+    text-decoration: none;
+    color: white;
+}
+
+.login_system a h4 {
+    opacity: 0.6;
+}
+
+.login_system a h4:hover{
+    opacity: 0.3;
+}
+
+
+/* SETTINGS STYLE  */
+
+.setting {
+    position: absolute;
+    bottom: 50px;
+    left: 100px;
+    opacity: 0.8;
+}
+
+
+/* .setting a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.6;
+    cursor: pointer;
+}
+.setting a:hover{
+    opacity: 0.3;
+} */
+
+.setting .setting_img {
+    cursor: pointer;
+    float: left;
+}
+
+.setting .setting_img i {
+    font-size: 2.5rem;
+}
+
+
+
+.setting .setting-container {
+    border: 1px solid white;
+    background-color: black;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    min-height: 400px;
+    width: 400px;
+}
+
+.setting .setting-container ul {
+    display: flex;
+}
+
+.setting .setting-container ul li{
+    padding: 10px;
+}
+
+.setting-container .li_settings.select {
+    background-color: gray;
+    border-radius: 5px;
+}
+
+/*1111111111111111111111111111111111111*/
+
+.setting .setting-container .setting-view-container .settings-tabs {
+    display: none;
+}
+
+.setting .setting-container .li_settings {
+    cursor: pointer;
+}
+
+.setting .setting-container .setting-view-container .settings-tabs.select {
+    display: block;
+}
+
+.setting-view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.setting-view-container #tabs-1 p{
+    margin-top: 20px;
+}
+
+.setting-view-container #tabs-1 a p {
+    background: gray;
+    border-radius: 5px;
+    max-width: 100px;
+    min-height: 30px;
+    align-items: center;
+    cursor: pointer;
+}
+/*1111111111111111111111111111111111111*/
+
+.setting .setting-container ul {
+    list-style-type: none;
+}
+
+.setting .setting-container a {
+    margin-bottom: 10px;
+}
+
+.setting .setting-container a h4:hover {
+    opacity: 0.5;
+}
+
+/*STYLE SETTINGS GENERAL*/
+
+/*CHECK BOX STYLE*/
+.setting-view-container #tabs-1 .switch_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+}
+
+
+input[type="checkbox"].switch_1 {
+    font-size: 20px;
+    -webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	width: 3.5em;
+	height: 1.5em;
+	background: #ddd;
+	border-radius: 3em;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch_1:checked{
+	background: #0ebeff;
+}
+
+input[type="checkbox"].switch_1:after{
+	position: absolute;
+	content: "";
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	background: #fff;
+	-webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	        box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	-webkit-transform: scale(.7);
+	        transform: scale(.7);
+	left: 0;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+input[type="checkbox"].switch_1:checked:after{
+	left: calc(100% - 1.5em);
+}
+
+/*CHECK BOX STYLE END*/
+
+
+/* TODO STYLES */
+.todo-app {
+    background-color: black;
+    border: 1px solid white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: white;
+    opacity: 0.8;
+}
+
+/* TODO NEW */
+.todo #btnToDo {
+    float: right;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.todo-app #myInput {
+    background: none;
+    border:none;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid white;
+    outline: none;
+    padding: 5px;
+}
+
+.todo-app ul li {
+    margin-top: 5px;
+    list-style-type: none
+}
+
+.todo-app ul li span i {
+    margin-left: 8px;
+}
+
+/* Style the close button */
+.todo-app .close {
+    position: absolute;
+    margin-left: 10px;
+}
+
+/* When clicked on, add a background color and strike out text */
+.todo-app ul li.checked {
+    text-decoration: line-through;
+    color: #fff;
+}
+
+/*WEATHER APP STYLES */
+
+.weather {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.weather .temperature {
+    display: flex;
+    justify-content: center;
+}
+
+/* WIDHED STYLES */
+
+/* CURRENCY WIDHED */
+.exchange-rates {
+    position: absolute;
+    right: 100px;
+    top:350px;
+}
+
+.exchange-rates .currency-container {
+    display: flex;
+    cursor: pointer;
+}
+
+.exchange-rates .currency-container p {
+    margin-left: 10px;
+}
+
+.pass-generator {
+    position: absolute;
+    background: black;
+    opacity: 0.8;
+    border: 1px solid white;
+    border-radius: 5px;
+    top: 300px;
+    left: 60px;
+    padding: 5px;
+}
+
+@media(max-width: 700px) {
+    #time {
+        font-size: 6rem;
+    }
+}

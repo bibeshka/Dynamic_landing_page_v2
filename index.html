@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="action">
+        <form action="https://www.google.com/search" target="_blank">
+            <div class="search">
+                <img src="./public/img/search.png">
+                <input type="text" placeholder="Google Search" name="q" autocomplete="off">
+            </div>
+        </form>
+        <time id="time"></time>
+        <h1>
+            <span id="greeting"></span>
+            <span id="name" contenteditable="true">1</span>
+        </h1>
+        
+        <h2>What Is Your Focus For Today?</h2>
+        <h2 id="focus" contenteditable="true">1</h2>
+        <div class="todo">
+            <!-- <div class="todo-app" style="display:none"> -->
+            <div class="todo-app" style="display:none">                
+                <div id="myDIV" class="header">
+                    <h2>My To Do List</h2>
+                    <input type="text" id="myInput" placeholder="Enter your goal"><br>
+                    <!-- <button class="addBtn">Add</button> -->
+                </div>
+
+                <ul id="myUL">
+                    
+                </ul>
+            </div>
+            <h4 id="btnToDo">Todo</h4>
+        </div>
+        <div class="setting">
+            <div class="setting-container" id="tabs" style="display: none">
+                <ul>
+                    <li class="li_settings select" data-id = "tabs-1">General</li>
+                    <li class="li_settings" data-id="tabs-2">Add New Photo</li>
+                    <li class="li_settings" data-id="tabs-3">About us</li>
+                    <li class="li_settings" data-id="tabs-4">Help</li>
+                </ul>
+                <div class="setting-view-container">
+                    <div class="settings-tabs select" id="tabs-1">
+                        <h3>General</h3>
+                        <p>Currency<div class="switch_box box_1">
+                            <input type="checkbox" class="switch_1">
+                        </div></p>
+                        <p>Budget App<div class="switch_box box_1">
+                            <input type="checkbox" class="switch_1">
+                        </div></p>
+                        <p>Pass Generator<div class="switch_box box_1">
+                            <input type="checkbox" class="switch_1" id="pass-generator-show">
+                        </div></p>
+                        <a class="delete_local_storage"><p>Logout</p></a>
+                    </div>
+                    <div class="settings-tabs" id="tabs-2">
+                        <h3>Add New Photo</h3>
+                        <p>Morning Photo</p>
+                        <a><p>Download</p></a>
+                        <p>Afternoon Photo</p>
+                        <a><p>Download</p></a>
+                        <p>Night Photo</p>
+                        <a><p>Download</p></a>
+                    </div>
+                    <div class="settings-tabs" id="tabs-3">
+                        <h3>About us</h3>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    <div class="settings-tabs" id="tabs-4">
+                        <h3>Help</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="setting_img">
+                <i class="fas fa-cog"></i>
+            </div>        
+    </div>
+    <div class="weather">
+         <div class="location">
+             <h3 class="location-timezone">Timezone</h3>
+             <canvas class="icon" width="64" height="64"></canvas>
+         </div>
+         <div class="temperature">
+             <h4 class="temperature-degree">34</h4><span>C</span>
+         </div>
+         <div class="temperature-description">Its cold</div>
+    </div>
+    <div class="exchange-rates" style="display:none"></div>
+    <!-- <div class="pass-generator" style="display:none"> -->
+    <div class="pass-generator" style="display:none">
+        <h4>Password Generator</h4>
+        <form>
+            <div class="form-group">
+                <label for="param-1">String Length(<span id="password-length">10</span></label>
+                <input type="range" class="form-control" id="param-1" value="10" max="50">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="param-2"> Numbers
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="param-3"> Lower Case
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="param-4"> Uppercase Letters
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="param-5"> 
+                    Special Characters
+                </label>
+            </div>
+            <button type="button" id="generator" class="btn-passgenerate">Generate</button>
+            <div id="out">
+                <p>dfadsfsa</p>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="dist/main.js"></script>
+    <script type="text/javascript" src="./src/skycons.js"></script>
+    <!-- <script src="js/main.js"></script>
+    <script src="js/setting.js"></script>
+    <script src="js/todo.js"></script>
+    <script type="text/javascript" src="js/skycons.js"></script>
+    <script type="text/javascript" src="js/weather.js"></script>
+    <script type="text/javascript" src="js/widhed-app/exchange-rates.js"></script>
+    <script type="text/javascript" src="js/widhed-app/pass-generator.js"></script> -->
+</body>
+</html>
