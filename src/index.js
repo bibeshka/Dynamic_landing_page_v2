@@ -1,158 +1,183 @@
-import Time from './time';
+import Time from "./time";
 // import Skycons from './skycons.js';
-import Weather from './widgets/weather';
-import { currancyWidget } from './widgets/currancy';
-import Todo from './widgets/todo';
-import PassGenerator from './widgets/passGenerator';
-import UserInfo from './widgets/getUserInfo';
-import Settings from './utils/settings';
-import { change_Vidget_Position, showBlock, logoutAndDeleteLocalStorage } from './utils/functions';
+import Weather from "./widgets/weather";
+import { currancyWidget } from "./widgets/currancy";
+import Todo from "./widgets/todo";
+import PassGenerator from "./widgets/passGenerator";
+import UserInfo from "./widgets/getUserInfo";
+import Settings from "./utils/settings";
+import {
+  change_Vidget_Position,
+  showBlock,
+  logoutAndDeleteLocalStorage,
+} from "./utils/functions";
 
 //Main functions
-function eventListeners () {
-	//*** USER INFO ***
-	const $name = document.querySelector('#name');
-	const $focus = document.querySelector('#focus');
+function eventListeners() {
+  //*** USER INFO ***
+  const $name = document.querySelector("#name");
+  const $focus = document.querySelector("#focus");
 
-	const user_info = new UserInfo($name, $focus);
+  const user_info = new UserInfo($name, $focus);
 
-	user_info.getName();
-	user_info.getFocus();
+  user_info.getName();
+  user_info.getFocus();
 
-	$name.addEventListener('keypress', user_info.setName);
-	$name.addEventListener('blur', user_info.setName)
-	$focus.addEventListener('keypress', user_info.setFocus);
-	$focus.addEventListener('blur', user_info.setFocus);
-	
-	// *** TIME ***
-	const $time = document.querySelector('#time');
+  $name.addEventListener("keypress", user_info.setName);
+  $name.addEventListener("blur", user_info.setName);
+  $focus.addEventListener("keypress", user_info.setFocus);
+  $focus.addEventListener("blur", user_info.setFocus);
 
-	const time_show = new Time($time);
-	time_show.showTime();
+  // *** TIME ***
+  const $time = document.querySelector("#time");
 
-	// *** WEATHER ***
-	const $todo_show = document.querySelector("#btnToDo");
-	const $todo_block = document.querySelector('.todo-app');
-	$todo_show.addEventListener('click', () => showBlock($todo_block));
+  const time_show = new Time($time);
+  time_show.showTime();
 
-	const $temperatureDescription = document.querySelector(".temperature-description");
-	const $temperatureDegree = document.querySelector(".temperature-degree");
-	const $locationTimezone = document.querySelector(".location-timezone");
+  // *** WEATHER ***
+  const $todo_show = document.querySelector("#btnToDo");
+  const $todo_block = document.querySelector(".todo-app");
+  $todo_show.addEventListener("click", () => showBlock($todo_block));
 
-	const weather = new Weather($temperatureDescription, $temperatureDegree, $locationTimezone);
-	weather.displayWeather();
+  const $temperatureDescription = document.querySelector(
+    ".temperature-description"
+  );
+  const $temperatureDegree = document.querySelector(".temperature-degree");
+  const $locationTimezone = document.querySelector(".location-timezone");
 
-	// *** TODO ***
-	const $todoInput = document.querySelector('#myInput');
-	const $todoAddButton = document.querySelector('.addBtn');
-	const $todoUl = document.querySelector('#myUL');
+  const weather = new Weather(
+    $temperatureDescription,
+    $temperatureDegree,
+    $locationTimezone
+  );
+  weather.displayWeather();
 
-	// const todo_addTodoBtn = document.querySelector('.addBtn');
+  // *** TODO ***
+  const $todoInput = document.querySelector("#myInput");
+  const $todoAddButton = document.querySelector(".addBtn");
+  const $todoUl = document.querySelector("#myUL");
 
-	//adding todo
-	const todo = new Todo($todoInput, $todoAddButton, $todoUl);
-	$todoInput.addEventListener('keypress', (keyPress) => {
-		const keyEnter = 13;
-		if(keyPress.which === keyEnter) {
-			todo.createTodo();
-		}
-	})
-	// todo_addTodoBtn.addEventListener('click', todo.createTodo());
+  // const todo_addTodoBtn = document.querySelector('.addBtn');
 
-	//check todo
-	$todoUl.addEventListener("click",(e) => {
-		todo.onClickTodo(e, $todoUl);
-	});
+  //adding todo
+  const todo = new Todo($todoInput, $todoAddButton, $todoUl);
+  $todoInput.addEventListener("keypress", (keyPress) => {
+    const keyEnter = 13;
+    if (keyPress.which === keyEnter) {
+      todo.createTodo();
+    }
+  });
+  // todo_addTodoBtn.addEventListener('click', todo.createTodo());
 
-	//loading todo
-	todo.loadTodo();
+  //check todo
+  $todoUl.addEventListener("click", (e) => {
+    todo.onClickTodo(e, $todoUl);
+  });
 
-	// *** SETTINGS ***
-	const $settings_show = document.querySelector(".setting_img");
-	const $settings_block = document.querySelector('#tabs')
+  //loading todo
+  todo.loadTodo();
 
-	$settings_show.addEventListener('click', () => showBlock($settings_block));
+  // *** SETTINGS ***
+  const $settings_show = document.querySelector(".setting_img");
+  const $settings_block = document.querySelector("#tabs");
 
-	const settings = new Settings($settings_block);
-	settings.createTabs();
+  $settings_show.addEventListener("click", () => showBlock($settings_block));
 
-	// *** WIDGET ***
+  const settings = new Settings($settings_block);
+  settings.createTabs();
 
-	//CURRENCY
+  // *** WIDGET ***
 
-	let $currency_show = document.querySelector('.switch_1');
-	const $currency_block = document.querySelector('.exchange-rates');
+  //CURRENCY
 
-	$currency_show.addEventListener('click', () => showBlock($currency_block, 'currency_block'));
+  let $currency_show = document.querySelector(".switch_1");
+  const $currency_block = document.querySelector(".exchange-rates");
 
-	//check if block in localStorage
-	if(localStorage.getItem('currency_block_check') === 'on' ) {
-		$currency_block.style.display = 'block';
-		$currency_show.checked = !0;
-	}
+  $currency_show.addEventListener("click", () =>
+    showBlock($currency_block, "currency_block")
+  );
 
-	//get block position from localStorage
-	if(localStorage.getItem('position_currency_block_top')) {
-		$currency_block.style.top = localStorage.getItem('position_currency_block_top');
-		console.log($currency_block.style.top);
-	}
+  //check if block in localStorage
+  if (localStorage.getItem("currency_block_check") === "on") {
+    $currency_block.style.display = "block";
+    $currency_show.checked = !0;
+  }
 
-	if(localStorage.getItem('position_currency_block_left')) {
-		$currency_block.style.left = localStorage.getItem('position_currency_block_left');
-		console.log($currency_block.style.left);
-	}
+  //get block position from localStorage
+  if (localStorage.getItem("position_currency_block_top")) {
+    $currency_block.style.top = localStorage.getItem(
+      "position_currency_block_top"
+    );
+    console.log($currency_block.style.top);
+  }
 
-	//change block position
-	$currency_block.addEventListener('mousedown', (e) => 
-		change_Vidget_Position(e, $currency_block, 'currency_block')
-	);
+  if (localStorage.getItem("position_currency_block_left")) {
+    $currency_block.style.left = localStorage.getItem(
+      "position_currency_block_left"
+    );
+    console.log($currency_block.style.left);
+  }
 
-	currancyWidget($currency_block);
+  //change block position
+  $currency_block.addEventListener("mousedown", (e) =>
+    change_Vidget_Position(e, $currency_block, "currency_block")
+  );
 
-	//PASS GENERATOR
+  currancyWidget($currency_block);
 
-	const $passGenerator_show = document.querySelector('#pass-generator-show');
-	const $passGenerator_block = document.querySelector('.pass-generator');
+  //PASS GENERATOR
 
-	$passGenerator_show.addEventListener('click', () => 
-		showBlock($passGenerator_block, 'passGenerator_block')
-	);
+  const $passGenerator_show = document.querySelector("#pass-generator-show");
+  const $passGenerator_block = document.querySelector(".pass-generator");
 
-	//check if block in localStorage
-	if(localStorage.getItem('passGenerator_block_check') === 'on' ) {
-		$passGenerator_block.style.display = 'block';
-		$passGenerator_show.checked = !0;
-	}
+  $passGenerator_show.addEventListener("click", () =>
+    showBlock($passGenerator_block, "passGenerator_block")
+  );
 
-	//get block position from localStorage
-	if(localStorage.getItem('position_passGenerator_block_top')) {
-		$passGenerator_block.style.top = localStorage.getItem('position_passGenerator_block_top');
-	}
+  //Show password length
+  const $passGenerator_InputValue = document.querySelector("#param-1");
+  $passGenerator_InputValue.oninput = () => {
+    document.querySelector("#password-length").innerHTML =
+      $passGenerator_InputValue.value;
+  };
 
-	if(localStorage.getItem('position_passGenerator_block_left')) {
-		$passGenerator_block.style.left = localStorage.getItem('position_passGenerator_block_left');
-	}
+  //check if block in localStorage
+  if (localStorage.getItem("passGenerator_block_check") === "on") {
+    $passGenerator_block.style.display = "block";
+    $passGenerator_show.checked = !0;
+  }
 
-	//change block position
-	$passGenerator_block.addEventListener('mousedown', (e) => 
-		change_Vidget_Position(e, $passGenerator_block, 'passGenerator_block')
-	);
+  //get block position from localStorage
+  if (localStorage.getItem("position_passGenerator_block_top")) {
+    $passGenerator_block.style.top = localStorage.getItem(
+      "position_passGenerator_block_top"
+    );
+  }
 
-	const passGenerator = new PassGenerator();
-	const $passGenerator_generateBtb = document.querySelector("#generator");
+  if (localStorage.getItem("position_passGenerator_block_left")) {
+    $passGenerator_block.style.left = localStorage.getItem(
+      "position_passGenerator_block_left"
+    );
+  }
 
-	$passGenerator_generateBtb.addEventListener('click', () => {
-		passGenerator.generatePass();
-	});
+  //change block position
+  $passGenerator_block.addEventListener("dblclick", (e) =>
+    change_Vidget_Position(e, $passGenerator_block, "passGenerator_block")
+  );
 
-	//LOGOUT
-	const $logout_btn = document.querySelector('.delete_local_storage');
-	$logout_btn.addEventListener('click', logoutAndDeleteLocalStorage)
+  const passGenerator = new PassGenerator();
+  const $passGenerator_generateBtb = document.querySelector("#generator");
+
+  $passGenerator_generateBtb.addEventListener("click", () => {
+    passGenerator.generatePass();
+  });
+
+  //LOGOUT
+  const $logout_btn = document.querySelector(".delete_local_storage");
+  $logout_btn.addEventListener("click", logoutAndDeleteLocalStorage);
 }
 
-
 //STARTING Main function
-document.addEventListener('DOMContentLoaded', () => {
-	eventListeners();
+document.addEventListener("DOMContentLoaded", () => {
+  eventListeners();
 });
-
